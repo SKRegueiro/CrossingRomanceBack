@@ -20,7 +20,7 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 app.use(cors({
-  origin: ['https://localhost:8080', 'https://crossingpaths.netlify.app', 'https://crossingpathsserver.herokuapp.com'],
+  origin: ['http://localhost:8080', 'https://crossingpaths.netlify.app', 'https://crossingpathsserver.herokuapp.com'],
   credentials: true
 }));
 aws.config.update({
