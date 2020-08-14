@@ -58,9 +58,7 @@ const isLoggedIn = (req, res, next) => {
   else res.sendStatus(403)
 }
 
-app.use('*', cors(), (req, res, next) => {
-  next()
-})
+app.options('*', cors())
 app.use('/auth', authRouter);
 app.use('/users', isLoggedIn, usersRouter);
 app.use('/chat', isLoggedIn, chatRouter)
