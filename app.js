@@ -46,7 +46,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.use(cors({
-  origin: ['http://localhost:8080', 'http://localhost:3000', 'https://crossingpaths.netlify.app/', 'https://crossingpathsserver.herokuapp.com/'],
+  origin: ['http://localhost:8080', 'http://localhost:3000', 'https://crossingpaths.netlify.app', 'https://crossingpathsserver.herokuapp.com'],
   credentials: true
 }));
 
