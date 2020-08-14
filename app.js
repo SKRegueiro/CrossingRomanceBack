@@ -23,7 +23,10 @@ app.set('view engine', 'pug');
 app.use(helmet())
 app.use(logger('dev'));
 app.use(express.json());
-
+app.use(cors({
+  origin: ['*', 'https://crossingpaths.netlify.app/', 'https://crossingpathsserver.herokuapp.com/'],
+  credentials: true
+}));
 aws.config.update({
   accessKeyId: keys.aws.accessKeyId,
   secretAccessKey: keys.aws.secretAccessKey
@@ -45,10 +48,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.use(cors({
-  origin: ['*', 'https://crossingpaths.netlify.app/', 'https://crossingpathsserver.herokuapp.com/'],
-  credentials: true
-}));
+
 
 const isLoggedIn = (req, res, next) => {
   if (req.user) {
