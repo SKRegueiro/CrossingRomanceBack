@@ -60,7 +60,9 @@ const isLoggedIn = (req, res, next) => {
   else res.sendStatus(403)
 }
 
-app.options('*', cors())
+app.options('*', (req, res, next) => {
+  res.addHeader("Access-Control-Allow-Origin", "*");
+})
 app.use('/auth', authRouter);
 app.use('/users', isLoggedIn, usersRouter);
 app.use('/chat', isLoggedIn, chatRouter)
