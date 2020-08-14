@@ -20,7 +20,8 @@ passport.serializeUser(function (user, done) {
 passport.use(new GoogleStrategy({
     clientID: keys.google.CLIENT_ID,
     clientSecret: keys.google.CLIENT_SECRET,
-    callbackURL: "http://localhost:3000/auth/google/callback",
+    callbackURL: "https://crossingpaths.netlify.app/auth/google/callback",
+    // callbackURL: "http://localhost:3000/auth/google/callback",
     passReqToCallback: true
 },
     function (request, accessToken, refreshToken, profile, done) {
@@ -32,7 +33,8 @@ passport.use(new GoogleStrategy({
 passport.use(new FacebookStrategy({
     clientID: keys.facebook.CLIENT_ID,
     clientSecret: keys.facebook.SECRET_ID,
-    callbackURL: "http://localhost:3000/auth/facebook/callback",
+    callbackURL: "https://crossingpaths.netlify.app/auth/facebook/callback",
+    // callbackURL: "http://localhost:3000/auth/facebook/callback",
     profileFields: ['id', 'emails', 'name'],
     passReqToCallback: false,
 },
@@ -50,7 +52,8 @@ passport.use(new FacebookStrategy({
 passport.use(new TwitterStrategy({
     consumerKey: keys.twitter.CONSUMER_KEY,
     consumerSecret: keys.twitter.CONSUMER_SECRET,
-    callbackURL: "http://localhost:3000/auth/twitter/callback"
+    callbackURL: "https://crossingpaths.netlify.app/auth/twitter/callback",
+    // callbackURL: "http://localhost:3000/auth/twitter/callback"
 },
     function (token, tokenSecret, profile, done) {
         //PROBLEMA: USUARIOS NO TIENEN EMAIL

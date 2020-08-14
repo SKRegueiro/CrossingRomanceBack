@@ -58,6 +58,9 @@ const isLoggedIn = (req, res, next) => {
   else res.sendStatus(403)
 }
 
+app.use('*', (req, res, next) => {
+  console.log(req.localFrontUrl)
+})
 app.use('/auth', authRouter);
 app.use('/users', isLoggedIn, usersRouter);
 app.use('/chat', isLoggedIn, chatRouter)
