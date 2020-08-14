@@ -23,14 +23,15 @@ app.set('view engine', 'pug');
 app.use(helmet())
 app.use(logger('dev'));
 app.use(express.json());
-app.use(cors({
-  origin: ['*', 'https://crossingpaths.netlify.app/', 'https://crossingpathsserver.herokuapp.com/'],
-  credentials: true
-}));
-aws.config.update({
-  accessKeyId: keys.aws.accessKeyId,
-  secretAccessKey: keys.aws.secretAccessKey
-})
+// app.use(cors({
+//   origin: ['*', 'https://crossingpaths.netlify.app/', 'https://crossingpathsserver.herokuapp.com/'],
+//   credentials: true
+// }));
+// aws.config.update({
+//   accessKeyId: keys.aws.accessKeyId,
+//   secretAccessKey: keys.aws.secretAccessKey
+// })
+app.use(cors())
 
 app.use(cookieSession({
   name: 'crossing-session',
