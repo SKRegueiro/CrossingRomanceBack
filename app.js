@@ -19,34 +19,19 @@ var app = express();
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
+app.use(cors({
+  origin: ['*', 'https://crossingpaths.netlify.app/', 'https://crossingpathsserver.herokuapp.com/'],
+  credentials: true
+}));
+aws.config.update({
+  accessKeyId: keys.aws.accessKeyId,
+  secretAccessKey: keys.aws.secretAccessKey
+})
+
 
 app.use(helmet())
 app.use(logger('dev'));
 app.use(express.json());
-
-var allowCrossDomain = function (req, res, next) {
-  res.header('Access-Control-Allow-Origin', '*');
-  res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
-  res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, Content-Length, X-Requested-With');
-
-  // intercept OPTIONS method
-  if ('OPTIONS' == req.method) {
-    res.send(200);
-  }
-  else {
-    next();
-  }
-};
-app.use(allowCrossDomain)
-// app.use(cors({
-//   origin: 'https://crossingpaths.netlify.app/',
-//   credentials: true
-// }));
-// aws.config.update({
-//   accessKeyId: keys.aws.accessKeyId,
-//   secretAccessKey: keys.aws.secretAccessKey
-// })
-
 
 
 app.use(cookieSession({
