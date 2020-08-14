@@ -37,7 +37,7 @@ app.use(cookieSession({
   key: [keys.session.cookieKey],
   secret: keys.session.cookieSecret,
   httpOnly: true,
-  sameSite: 'none',
+  SameSite: 'none',
   maxAge: 24 * 60 * 60 * 1000
 }));
 
