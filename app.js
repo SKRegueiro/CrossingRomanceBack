@@ -25,6 +25,13 @@ app.use(cors({
   credentials: true
 }));
 
+app.use(function (req, res, next) {
+  res.header('Access-Control-Allow-Origin', 'http://localhost:4200')
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, X-AUTHENTICATION, X-IP, Content-Type, Accept')
+  res.header('Access-Control-Allow-Credentials', true)
+  res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS')
+  next()
+})
 aws.config.update({
   accessKeyId: keys.aws.accessKeyId,
   secretAccessKey: keys.aws.secretAccessKey
@@ -59,7 +66,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 const isLoggedIn = (req, res, next) => {
-  passport.session()
+
   if (req.user) {
     global.loggedUser = req.user[0]
     next()
