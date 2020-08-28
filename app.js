@@ -57,6 +57,7 @@ app.use(passport.session());
 
 const isLoggedIn = (req, res, next) => {
   if (req.user) {
+    console.log(req.user)
     global.loggedUser = req.user[0]
     next()
   }
@@ -64,7 +65,8 @@ const isLoggedIn = (req, res, next) => {
 }
 
 app.use('/', (req, res, next) => {
-  console.log(req.user);
+  console.log(req.user != undefined);
+
   next()
 })
 
