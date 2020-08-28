@@ -42,6 +42,7 @@ app.use(cookieSession({
   secret: keys.session.cookieSecret,
   httpOnly: true,
   SameSite: 'none',
+  domain: '.netlify.app',
   maxAge: 24 * 60 * 60 * 1000
 }));
 
@@ -69,10 +70,10 @@ app.use('/', (req, res, next) => {
 })
 app.use('/auth', authRouter);
 app.use('/users',
-  //  isLoggedIn,
+  isLoggedIn,
   usersRouter);
 app.use('/chat',
-  //  isLoggedIn,
+  isLoggedIn,
   chatRouter)
 
 app.post('/logout', (req, res) => {
