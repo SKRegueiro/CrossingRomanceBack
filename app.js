@@ -41,7 +41,7 @@ app.use(cookieSession({
   key: [keys.session.cookieKey],
   secret: keys.session.cookieSecret,
   httpOnly: true,
-  SameSite: 'lax',
+  SameSite: 'none',
   maxAge: 24 * 60 * 60 * 1000
 }));
 
@@ -63,7 +63,6 @@ const isLoggedIn = (req, res, next) => {
 }
 app.use('/', (req, res, next) => {
   console.log(req.user);
-  console.log(req)
   next()
 })
 app.use('/auth', authRouter);
