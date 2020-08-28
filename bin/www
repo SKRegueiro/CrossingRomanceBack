@@ -14,8 +14,8 @@ var http = require('http');
 
 var port = normalizePort(process.env.PORT || '3000');
 app.set('port', port);
-app.set('localFrontUrl', 'http://localhost:8080/')
-app.set('onlineFrontUrl', 'https://crossingpaths.netlify.app/')
+// app.set('localFrontUrl', 'http://localhost:8080/')
+// app.set('onlineFrontUrl', 'https://crossingpaths.netlify.app/')
 
 /**
  * Create HTTP server.
