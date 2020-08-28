@@ -59,6 +59,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 const isLoggedIn = (req, res, next) => {
+  passport.session()
   if (req.user) {
     global.loggedUser = req.user[0]
     next()
