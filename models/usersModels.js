@@ -8,7 +8,7 @@ const runQuery = (query) => {
 }
 
 const getNewUser = (limit, loggedUserId) => {
-    let query = `SELECT users.* FROM users WHERE users.id NOT IN (SELECT likes.shown_user_id FROM likes WHERE likes.user_id = ${loggedUserId}) LIMIT ${limit}`
+    let query = `SELECT users.* FROM users WHERE users.id NOT IN (SELECT likes.shown_user_id FROM likes WHERE likes.user_id = ${loggedUserId}) AND users.id != ${loggedUserId} LIMIT ${limit}`
 
     return runQuery(query)
 }
