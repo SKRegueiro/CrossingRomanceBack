@@ -42,7 +42,6 @@ app.use(cookieSession({
   secret: keys.session.cookieSecret,
   httpOnly: true,
   SameSite: 'none',
-  domain: '.netlify.app',
   maxAge: 24 * 60 * 60 * 1000
 }));
 
@@ -57,6 +56,7 @@ app.use(passport.session());
 
 const isLoggedIn = (req, res, next) => {
   console.log(req.user)
+  console.log(req.session)
   if (req.user) {
     global.loggedUser = req.user[0]
     next()
