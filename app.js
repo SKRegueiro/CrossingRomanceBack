@@ -51,10 +51,10 @@ app.use(cookieSession({
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
-
+app.use(express.session({ secret: keys.session.cookieSecret }));
 app.use(passport.initialize());
 app.use(passport.session());
-app.use(express.session({ secret: keys.session.cookieSecret }));
+
 
 app.use(express.static(path.join(__dirname, 'public')));
 
