@@ -16,7 +16,7 @@ require('./db.js')
 require('./config/passport-setup')
 
 var app = express();
-
+app.use(express.static(path.join(__dirname, 'public')));
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 app.set('trust proxy', 1);
@@ -25,13 +25,6 @@ app.use(cors({
   credentials: true
 }));
 
-app.use(function (req, res, next) {
-  res.header('Access-Control-Allow-Origin', 'http://localhost:4200')
-  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, X-AUTHENTICATION, X-IP, Content-Type, Accept')
-  res.header('Access-Control-Allow-Credentials', true)
-  res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS')
-  next()
-})
 aws.config.update({
   accessKeyId: keys.aws.accessKeyId,
   secretAccessKey: keys.aws.secretAccessKey
@@ -48,13 +41,12 @@ app.use(cookieSession({
   key: [keys.session.cookieKey],
   secret: keys.session.cookieSecret,
   httpOnly: true,
-  SameSite: 'None',
-
-  domain: 'crossingpaths.netlify.app',
+  secure: false,
+  SameSite: 'none',
+  // domain: 'crossingpaths.netlify.app',
   maxAge: 24 * 60 * 60 * 1000
 }));
-
-
+console.log(this)
 
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
@@ -63,11 +55,8 @@ app.use(cookieParser());
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.use(express.static(path.join(__dirname, 'public')));
-
 
 const isLoggedIn = (req, res, next) => {
-
   if (req.user) {
     global.loggedUser = req.user[0]
     next()
@@ -77,7 +66,6 @@ const isLoggedIn = (req, res, next) => {
 
 app.use('/', (req, res, next) => {
   console.log(req.user);
-
   next()
 })
 
