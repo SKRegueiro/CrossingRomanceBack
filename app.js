@@ -41,7 +41,7 @@ app.use(cookieSession({
   key: [keys.session.cookieKey],
   secret: keys.session.cookieSecret,
   httpOnly: true,
-  SameSite: 'none',
+  SameSite: 'None',
   domain: '.netlify.app',
   maxAge: 24 * 60 * 60 * 1000
 }));
