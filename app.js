@@ -45,6 +45,7 @@ app.use(cookieSession({
   domain: 'crossingpaths.netlify.app',
   maxAge: 24 * 60 * 60 * 1000
 }));
+console.log(this)
 
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
