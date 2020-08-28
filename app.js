@@ -47,6 +47,7 @@ app.use(cookieSession({
 }));
 console.log(app)
 
+
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
@@ -67,6 +68,7 @@ const isLoggedIn = (req, res, next) => {
 
 app.use('/', (req, res, next) => {
   console.log(req.user);
+  console.log(req.session)
   next()
 })
 
