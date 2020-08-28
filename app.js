@@ -65,9 +65,6 @@ const isLoggedIn = (req, res, next) => {
 
 app.use('/', (req, res, next) => {
   console.log(req.user != undefined);
-  console.log(req.sessionID)
-  console.log(req.session)
-
   next()
 })
 
