@@ -16,7 +16,7 @@ require('./db.js')
 require('./config/passport-setup')
 
 var app = express();
-
+app.use(express.static(path.join(__dirname, 'public')));
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 app.set('trust proxy', 1);
@@ -49,7 +49,7 @@ console.log(this)
 
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+
 
 app.use(passport.initialize());
 app.use(passport.session());
