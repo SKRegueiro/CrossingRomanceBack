@@ -7,14 +7,18 @@ const keys = require('./keys')
 // const InstagramStrategy = require('passport-instagram').Strategy;
 
 passport.deserializeUser(function (user, done) {
-    console.log('deserialize', user)
+    console.log('deserialize')
     User.inDatabase(user)
-        .then(result => done(null, result))
+        .then(result => {
+            console.log('RESULTADO ', result);
+
+            done(null, result)
+        })
         .catch(err => done(err, user))
 });
 
 passport.serializeUser(function (user, done) {
-    console.log('serialize', user)
+    console.log('serialize')
     //SHOULD CHANGE EMAIL TO PROVIDER ID
     done(null, user._json.email);
 });

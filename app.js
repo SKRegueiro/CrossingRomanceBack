@@ -16,7 +16,7 @@ require('./db.js')
 require('./config/passport-setup')
 
 var app = express();
-app.use(express.static(path.join(__dirname, 'public')));
+
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 app.set('trust proxy', 1);
@@ -41,12 +41,11 @@ app.use(cookieSession({
   key: [keys.session.cookieKey],
   secret: keys.session.cookieSecret,
   httpOnly: true,
-  secure: false,
   SameSite: 'None',
   domain: 'crossingpaths.netlify.app',
   maxAge: 24 * 60 * 60 * 1000
 }));
-console.log(this)
+console.log(app)
 
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
@@ -54,6 +53,8 @@ app.use(cookieParser());
 
 app.use(passport.initialize());
 app.use(passport.session());
+
+app.use(express.static(path.join(__dirname, 'public')));
 
 
 const isLoggedIn = (req, res, next) => {
