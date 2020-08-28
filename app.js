@@ -63,6 +63,7 @@ const isLoggedIn = (req, res, next) => {
 }
 app.use('/', (req, res, next) => {
   console.log(req.user);
+  global.loggedUser = req.user[0]
   next()
 })
 app.use('/auth', authRouter);
