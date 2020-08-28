@@ -42,7 +42,7 @@ app.use(cookieSession({
   secret: keys.session.cookieSecret,
   httpOnly: true,
   SameSite: 'None',
-  domain: '.netlify.app',
+  domain: 'crossingpaths.netlify.app',
   maxAge: 24 * 60 * 60 * 1000
 }));
 
@@ -54,7 +54,6 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 
-
 const isLoggedIn = (req, res, next) => {
   if (req.user) {
     global.loggedUser = req.user[0]
@@ -64,7 +63,7 @@ const isLoggedIn = (req, res, next) => {
 }
 
 app.use('/', (req, res, next) => {
-  console.log(req.user != undefined);
+  console.log(req.user);
   next()
 })
 
