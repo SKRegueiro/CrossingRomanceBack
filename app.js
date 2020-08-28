@@ -56,7 +56,6 @@ app.use(passport.session());
 
 
 const isLoggedIn = (req, res, next) => {
-  console.log(req.user)
   if (req.user) {
     global.loggedUser = req.user[0]
     next()
@@ -68,6 +67,7 @@ app.use('/', (req, res, next) => {
   console.log(req.user);
   next()
 })
+
 app.use('/auth', authRouter);
 app.use('/users',
   isLoggedIn,
