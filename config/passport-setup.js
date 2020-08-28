@@ -22,7 +22,7 @@ passport.use(new GoogleStrategy({
     clientSecret: keys.google.CLIENT_SECRET,
     callbackURL: "https://crossingpathsserver.herokuapp.com/auth/google/callback",
     // callbackURL: "http://localhost:3000/auth/google/callback",
-    passReqToCallback: true
+    // passReqToCallback: true
 },
     function (request, accessToken, refreshToken, profile, done) {
         findUserOrCreate(profile._json)
