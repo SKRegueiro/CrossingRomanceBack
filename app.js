@@ -40,8 +40,8 @@ app.use(cookieSession({
   name: 'crossing-session',
   key: [keys.session.cookieKey],
   secret: keys.session.cookieSecret,
-  httpOnly: true,
-  SameSite: 'none',
+  // httpOnly: true,
+  // SameSite: 'none',
   domain: '.netlify.app',
   maxAge: 24 * 60 * 60 * 1000
 }));
@@ -64,7 +64,7 @@ const isLoggedIn = (req, res, next) => {
 }
 
 app.use('/', (req, res, next) => {
-  for (const key in object) {
+  for (const key in req) {
     console.log(object[key])
   }
 
