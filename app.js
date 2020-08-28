@@ -40,7 +40,7 @@ app.use(cookieSession({
   name: 'crossing-session',
   key: [keys.session.cookieKey],
   secret: keys.session.cookieSecret,
-  httpOnly: false,
+  httpOnly: true,
   SameSite: 'none',
   domain: '.netlify.app',
   maxAge: 24 * 60 * 60 * 1000
@@ -57,8 +57,6 @@ app.use(passport.session());
 
 const isLoggedIn = (req, res, next) => {
   if (req.user) {
-    console.log(req.user)
-    console.log(req.session)
     global.loggedUser = req.user[0]
     next()
   }
@@ -67,6 +65,8 @@ const isLoggedIn = (req, res, next) => {
 
 app.use('/', (req, res, next) => {
   console.log(req.user != undefined);
+  console.log(req.sessionID)
+  console.log(req.session)
 
   next()
 })
