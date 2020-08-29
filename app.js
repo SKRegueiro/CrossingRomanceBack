@@ -43,7 +43,7 @@ app.use(cookieSession({
   httpOnly: true,
   secure: true,
   sameSite: 'none',
-  // domain: 'crossingpaths.netlify.app',
+  domain: 'crossingpaths.netlify.app',
   maxAge: 24 * 60 * 60 * 1000
 }));
 
