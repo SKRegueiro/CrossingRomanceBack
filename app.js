@@ -36,16 +36,16 @@ app.use(logger('dev'));
 app.use(express.json());
 
 
-// app.use(cookieSession({
-//   name: 'crossing-session',
-//   key: [keys.session.cookieKey],
-//   secret: keys.session.cookieSecret,
-//   httpOnly: true,
-//   secure: true,
-//   sameSite: 'none',
-//   domain: 'crossingpaths.netlify.app',
-//   maxAge: 24 * 60 * 60 * 1000
-// }));
+app.use(cookieSession({
+  name: 'crossing-session',
+  key: [keys.session.cookieKey],
+  secret: keys.session.cookieSecret,
+  httpOnly: true,
+  secure: true,
+  sameSite: 'none',
+  domain: 'crossingpaths.netlify.app',
+  maxAge: 24 * 60 * 60 * 1000
+}));
 
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
