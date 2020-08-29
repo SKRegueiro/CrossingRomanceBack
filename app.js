@@ -41,9 +41,9 @@ app.use(cookieSession({
   key: [keys.session.cookieKey],
   secret: keys.session.cookieSecret,
   httpOnly: true,
-  // secure: true,
+  secure: true,
   sameSite: 'none',
-  // domain: 'crossingpaths.netlify.app',
+  domain: '.netlify.app',
   maxAge: 24 * 60 * 60 * 1000
 }));
 
@@ -66,7 +66,7 @@ const isLoggedIn = (req, res, next) => {
 }
 
 app.use('/', (req, res, next) => {
-  console.log(req.user);
+  console.log(req.user != undefined);
   next()
 })
 

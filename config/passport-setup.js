@@ -10,7 +10,7 @@ passport.deserializeUser(function (user, done) {
     console.log('deserialize')
     User.inDatabase(user)
         .then(result => {
-            console.log('RESULTADO ', result);
+            // console.log('RESULTADO ', result);
 
             done(null, result)
         })
@@ -26,8 +26,8 @@ passport.serializeUser(function (user, done) {
 passport.use(new GoogleStrategy({
     clientID: keys.google.CLIENT_ID,
     clientSecret: keys.google.CLIENT_SECRET,
-    // callbackURL: "https://crossingpathsserver.herokuapp.com/auth/google/callback",
-    callbackURL: "http://localhost:3000/auth/google/callback",
+    callbackURL: "https://crossingpathsserver.herokuapp.com/auth/google/callback",
+    // callbackURL: "http://localhost:3000/auth/google/callback",
     passReqToCallback: true
 },
     function (request, accessToken, refreshToken, profile, done) {
