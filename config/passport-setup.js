@@ -26,7 +26,7 @@ passport.serializeUser(function (user, done) {
 passport.use(new GoogleStrategy({
     clientID: keys.google.CLIENT_ID,
     clientSecret: keys.google.CLIENT_SECRET,
-    callbackURL: "https://crossingpathsserver.herokuapp.com/auth/google/callback",
+    callbackURL: "https://server.crossingpaths.site/auth/google/callback",
     // callbackURL: "http://localhost:3000/auth/google/callback",
     passReqToCallback: true
 },
