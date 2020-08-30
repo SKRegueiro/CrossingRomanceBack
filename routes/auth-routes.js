@@ -4,7 +4,6 @@ const googleRouter = require('./authentication/googleRouter');
 const facebookRouter = require('./authentication/facebookRouter');
 const twitterRouter = require('./authentication/twitterRouter')
 const instagramRouter = require('./authentication/instagramRouter');
-const { registerProfile } = require('../models/usersModels');
 
 
 router.use('/google', googleRouter)
@@ -15,7 +14,7 @@ router.use('/twitter', twitterRouter)
 router.use('instagram', instagramRouter)
 
 router.get('/success', (req, res) => {
-    res.redirect('https://crossingpaths.site')
+    res.redirect('www.crossingpaths.site')
     // res.redirect('http://localhost:8080/')
 
 })
