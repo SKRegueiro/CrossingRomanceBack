@@ -15,7 +15,7 @@ router.use('/twitter', twitterRouter)
 router.use('instagram', instagramRouter)
 
 router.get('/success', (req, res) => {
-    res.redirect('https://www.crossingpaths.site')
+    res.redirect('www.crossingpaths.site')
     // res.redirect('http://localhost:8080/')
 
 })
