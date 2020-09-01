@@ -8,8 +8,8 @@ module.exports = {
         SECRET_ID: "77cdc4c45a25777614a8c5e1d424a46c"
     },
     twitter: {
-        CONSUMER_KEY: "zcyV3QoYLht23rdOB5WJCS6Ul",
-        CONSUMER_SECRET: "TRAvkgNHj436Glfm9GIEaN7yp6t2UYXyzNhTaURXyDrtWt6wgX"
+        CONSUMER_KEY: "wpre0bWXHPhaeyFzBjN4B0cGD",
+        CONSUMER_SECRET: "102QibyvhjemcHyxXvEWRhklFd4e8YR20IchLi7GmsdSAOWGXx"
     },
     session: {
         cookieKey: 'asdf098ahdsf9fhdsakj93dkfb4b52',
