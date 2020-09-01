@@ -39,7 +39,7 @@ passport.use(new GoogleStrategy({
 passport.use(new FacebookStrategy({
     clientID: keys.facebook.CLIENT_ID,
     clientSecret: keys.facebook.SECRET_ID,
-    callbackURL: "https://crossingpathsserver.herokuapp.com/auth/facebook/callback",
+    callbackURL: "https://server.crossingpaths.site/auth/facebook/callback",
     // callbackURL: "http://localhost:3000/auth/facebook/callback",
     profileFields: ['id', 'emails', 'name'],
     passReqToCallback: false,
@@ -58,7 +58,7 @@ passport.use(new FacebookStrategy({
 passport.use(new TwitterStrategy({
     consumerKey: keys.twitter.CONSUMER_KEY,
     consumerSecret: keys.twitter.CONSUMER_SECRET,
-    callbackURL: "https://crossingpathsserver.herokuapp.com/auth/twitter/callback",
+    callbackURL: "https://server.crossingpaths.site/auth/twitter/callback",
     // callbackURL: "http://localhost:3000/auth/twitter/callback"
 },
     function (token, tokenSecret, profile, done) {
