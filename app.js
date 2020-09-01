@@ -21,7 +21,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 app.set('trust proxy', 1);
 app.use(cors({
-  origin: ['http://localhost:8080', 'https://crossingpaths.netlify.app', 'https://crossingpathsserver.herokuapp.com'],
+  origin: ['http://localhost:8080', 'https://server.crossingpaths.site', 'https://crossingpaths.site'],
   credentials: true
 }));
 
