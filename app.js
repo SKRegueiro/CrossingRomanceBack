@@ -61,7 +61,6 @@ const isLoggedIn = (req, res, next) => {
     next()
   }
   else res.sendStatus(403)
-  // next()
 }
 
 app.use('/', (req, res, next) => {
